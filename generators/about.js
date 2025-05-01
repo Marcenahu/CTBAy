@@ -1,12 +1,10 @@
 import { makeImgUrl } from "../generate.js";
 import { navbar, footer } from "./components.js";
 import fs from "fs";
-const paths = {
+const relativePaths = {
   styles: "../styles",
-  index: "../index.html",
   lib: "../lib",
   media: "../media",
-  views: ".",
   manifest: "../manifest.json",
 };
 
@@ -20,7 +18,7 @@ const generateAbout = (brand, about) => {
     <meta charset="UTF-8" />
     <title>Compañía Teatral de los Buenos Ayres</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="${paths.manifest}" />
+    <link rel="manifest" href="${relativePaths.manifest}" />
     <link rel="apple-touch-icon" href="${logo}" />
     <link rel="icon" href="${logo}" />
     <link rel="icon" type="image/x-icon" href="${logo}" />
@@ -48,11 +46,11 @@ const generateAbout = (brand, about) => {
     />
     <meta name="twitter:image" content="${logo}" />
     <!-- styles -->
-    <link rel="stylesheet" href="${paths.styles}/root.css" />
+    <link rel="stylesheet" href="${relativePaths.styles}/root.css" />
   </head>
   <body>
-    ${navbar(paths, brand)}
-     <main>
+    ${navbar(relativePaths, brand)}
+     <main id="swup" class="transition-main">
       <style>
         .hero {
           display: flex;
@@ -138,13 +136,14 @@ const generateAbout = (brand, about) => {
         .join("")}
         </div>
       </div>
-      ${footer(paths, brand)}
+      ${footer(relativePaths, brand)}
     </main>
+    <script src="${relativePaths.lib}/swup.js"></script>
+    <script src="${relativePaths.lib}/swupConfig.js"></script>
   </body>
 </html>
 `;
-
-  fs.writeFileSync(`./generated/views/about.html`, htmlContent);
+  fs.writeFileSync(`./generated/quienes-somos/index.html`, htmlContent);
 };
 
 export default generateAbout;

@@ -1,14 +1,11 @@
 import { makeImgUrl } from "../generate.js";
 import { navbar, footer } from "./components.js";
-
 import fs from "fs";
-const paths = {
-  styles: "../styles",
-  index: "../index.html",
-  lib: "../lib",
-  media: "../media",
-  views: ".",
-  manifest: "../manifest.json",
+const relativePaths = {
+  styles: "../../styles",
+  lib: "../../lib",
+  media: "../../media",
+  manifest: "../../manifest.json",
 };
 
 const generateProductions = (brand, productions) => {
@@ -21,7 +18,7 @@ const generateProductions = (brand, productions) => {
     <meta charset="UTF-8" />
     <title>Compañía Teatral de los Buenos Ayres</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="${paths.manifest}" />
+    <link rel="manifest" href="${relativePaths.manifest}" />
     <link rel="apple-touch-icon" href="${logo}" />
     <link rel="icon" href="${logo}" />
     <link rel="icon" type="image/x-icon" href="${logo}" />
@@ -49,11 +46,11 @@ const generateProductions = (brand, productions) => {
     />
     <meta name="twitter:image" content="${logo}" />
     <!-- styles -->
-    <link rel="stylesheet" href="${paths.styles}/root.css" />
+    <link rel="stylesheet" href="${relativePaths.styles}/root.css" />
   </head>
   <body>
-    ${navbar(paths, brand)}
-    <main>
+    ${navbar(relativePaths, brand)}
+    <main id="swup" class="transition-main">
       <style>
         .hero {
           display: flex;
@@ -162,10 +159,10 @@ const generateProductions = (brand, productions) => {
             <h3 class="title">${production.title}</h3>
             <a
               class="seeMore"
-              href="./productions/${production.title
+              href="/producciones/propias/${production.title
                 .toLowerCase()
                 .replace(/\s+/g, "-")
-                .replace(/,/g, "")}.html"
+                .replace(/,/g, "")}"
             >
               Ver más
               <?xml version="1.0" encoding="utf-8"?>
@@ -195,9 +192,10 @@ const generateProductions = (brand, productions) => {
         })
         .join("")}
       </div>
- 
-      ${footer(paths, brand)}
+      ${footer(relativePaths, brand)}
     </main>
+    <script src="${relativePaths.lib}/swup.js"></script>
+    <script src="${relativePaths.lib}/swupConfig.js"></script>
   </body>
 </html>
 `;
@@ -207,7 +205,7 @@ const generateProductions = (brand, productions) => {
     <meta charset="UTF-8" />
     <title>Compañía Teatral de los Buenos Ayres</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="${paths.manifest}" />
+    <link rel="manifest" href="${relativePaths.manifest}" />
     <link rel="apple-touch-icon" href="${logo}" />
     <link rel="icon" href="${logo}" />
     <link rel="icon" type="image/x-icon" href="${logo}" />
@@ -235,11 +233,11 @@ const generateProductions = (brand, productions) => {
     />
     <meta name="twitter:image" content="${logo}" />
     <!-- styles -->
-    <link rel="stylesheet" href="${paths.styles}/root.css" />
+    <link rel="stylesheet" href="${relativePaths.styles}/root.css" />
   </head>
   <body>
-    ${navbar(paths, brand)}
-    <main>
+    ${navbar(relativePaths, brand)}
+    <main id="swup" class="transition-main">
       <style>
         .hero {
           display: flex;
@@ -348,10 +346,10 @@ const generateProductions = (brand, productions) => {
             <h3 class="title">${production.title}</h3>
             <a
               class="seeMore"
-              href="./productions/${production.title
+              href="/producciones/co-producciones/${production.title
                 .toLowerCase()
                 .replace(/\s+/g, "-")
-                .replace(/,/g, "")}.html"
+                .replace(/,/g, "")}"
             >
               Ver más
               <?xml version="1.0" encoding="utf-8"?>
@@ -381,14 +379,22 @@ const generateProductions = (brand, productions) => {
         })
         .join("")}
       </div>
-      ${footer(paths, brand)}
+      ${footer(relativePaths, brand)}
     </main>
+    <script src="${relativePaths.lib}/swup.js"></script>
+    <script src="${relativePaths.lib}/swupConfig.js"></script>
   </body>
 </html>
 `;
 
-  fs.writeFileSync(`./generated/views/ownProductions.html`, ownProductions);
-  fs.writeFileSync(`./generated/views/coProductions.html`, coProductions);
+  fs.writeFileSync(
+    `./generated/producciones/propias/index.html`,
+    ownProductions
+  );
+  fs.writeFileSync(
+    `./generated/producciones/co-producciones/index.html`,
+    coProductions
+  );
 };
 
 export default generateProductions;

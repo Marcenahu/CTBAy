@@ -1,11 +1,16 @@
 import { makeImgUrl } from "../generate.js";
-
-export const navbar = (paths, data) => `
-    <link rel="stylesheet" href="${paths.styles}/navbar.css" />
-    <script defer src="${paths.lib}/navMobile.js"></script>
+const absolutePaths = {
+  home: "/",
+  about: "/quienes-somos",
+  ownProductions: "/producciones/propias",
+  coProductions: "/producciones/co-producciones",
+};
+export const navbar = (relativePaths, data) => `
+    <link rel="stylesheet" href="${relativePaths.styles}/navbar.css" />
+    <script defer src="${relativePaths.lib}/navMobile.js"></script>
     <nav class="navbar" id="navbar">
-        <a href="${paths.index}" class="item">Inicio</a>
-        <a href="${paths.views}/about.html" class="item">Quiénes somos</a>
+        <a href="${absolutePaths.home}" class="item">Inicio</a>
+        <a href="${absolutePaths.about}" class="item">Quiénes somos</a>
         <details class="item">
           <summary>Producciones
             <?xml version="1.0" encoding="utf-8"?>
@@ -14,8 +19,8 @@ export const navbar = (paths, data) => `
             </svg>
           </summary>
           <div>
-            <a href="${paths.views}/ownProductions.html">Propias</a>
-            <a href="${paths.views}/coProductions.html">Co producciones</a>
+            <a href="${absolutePaths.ownProductions}">Propias</a>
+            <a href="${absolutePaths.coProductions}">Co producciones</a>
           </div>
         </details>
         <details class="item" style="display:none">
@@ -26,13 +31,13 @@ export const navbar = (paths, data) => `
             </svg>
           </summary>
           <div>
-            <a href="${paths.views}/" class="item">Cursos y talleres</a>
-            <a href="${paths.views}/" >Club CTBAy</a>
-            <a href="${paths.views}/" >Teatro para Empresas</a>
+            <a href="/" class="item">Cursos y talleres</a>
+            <a href="/" >Club CTBAy</a>
+            <a href="/" >Teatro para Empresas</a>
           </div>
         </details> 
     </nav>
-    <link rel="stylesheet" href="${paths.styles}/branding.css" />
+    <link rel="stylesheet" href="${relativePaths.styles}/branding.css" />
     <div class="branding">
         <img
           class="logo"
@@ -45,37 +50,37 @@ export const navbar = (paths, data) => `
             data.email
           }" target="_blank" rel="noreferrer noopener">
             Querés pertenecer a CTBAy??. Escribinos.
-<img src="${paths.media}/email.svg" alt="" />
+<img src="${relativePaths.media}/email.svg" alt="" />
           </a>
           <div class="social">
             <a href="https://wa.me/${data.whatsapp.replace(
               /\s+/g,
               ""
             )}" target="_blank" rel="noreferrer noopener"><img src="${
-  paths.media
+  relativePaths.media
 }/whatsapp.svg" alt="" /></a>
             <a href="https://www.instagram.com/${
               data.instagram
             }/" target="_blank" rel="noreferrer noopener"><img src="${
-  paths.media
+  relativePaths.media
 }/instagram.svg" alt="" /></a>
             <a href="https://www.facebook.com/${
               data.facebook
             }" target="_blank" rel="noreferrer noopener"><img src="${
-  paths.media
+  relativePaths.media
 }/facebook.svg" alt="" /></a>
             <a href="https://www.youtube.com/${
               data.youtube
             }/videos" target="_blank" rel="noreferrer noopener"><img src="${
-  paths.media
+  relativePaths.media
 }/youtube.svg" alt="" /></a>
           </div>
         </div>
     </div>
     <nav class="navMobile">
         <div class="menu" id="menu">
-          <a href="${paths.index}" class="item">Inicio</a>
-        <a href="${paths.views}/about.html" class="item">Quiénes somos</a>
+          <a href="${absolutePaths.home}" class="item">Inicio</a>
+        <a href="${absolutePaths.about}" class="item">Quiénes somos</a>
         <details class="item">
           <summary>Producciones
             <?xml version="1.0" encoding="utf-8"?>
@@ -84,8 +89,8 @@ export const navbar = (paths, data) => `
             </svg>
           </summary>
           <div>
-            <a href="${paths.views}/ownProductions.html">Propias</a>
-            <a href="${paths.views}/coProductions.html">Co producciones</a>
+            <a href="${absolutePaths.ownProductions}">Propias</a>
+            <a href="${absolutePaths.coProductions}">Co producciones</a>
           </div>
         </details>
         
@@ -97,9 +102,9 @@ export const navbar = (paths, data) => `
             </svg>
           </summary>
           <div>
-            <a href="${paths.views}/" class="item">Cursos y talleres</a>
-            <a href="${paths.views}/" >Club CTBAy</a>
-            <a href="${paths.views}/" >Teatro para Empresas</a>
+            <a href="/" class="item">Cursos y talleres</a>
+            <a href="/" >Club CTBAy</a>
+            <a href="/" >Teatro para Empresas</a>
           </div>
         </details> 
         </div>
@@ -111,8 +116,8 @@ export const navbar = (paths, data) => `
     </nav>
       `;
 
-export const footer = (paths, data) => `
-    <link rel="stylesheet" href="${paths.styles}/footer.css" />
+export const footer = (relativePaths, data) => `
+    <link rel="stylesheet" href="${relativePaths.styles}/footer.css" />
     <footer>
     <div class="list">
     <img

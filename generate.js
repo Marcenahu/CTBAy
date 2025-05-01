@@ -1,4 +1,4 @@
-import generateIndex from "./generators/index.js";
+import generateIndex from "./generators/home.js";
 import generateAbout from "./generators/about.js";
 import generateProductions from "./generators/productions.js";
 import generateProductionDetails from "./generators/productionDetails.js";
@@ -30,14 +30,17 @@ const fetchData = async () => {
 
 const generatePages = async () => {
   const collections = await fetchData();
-  const home = collections.filter((colection) => colection._type === "home")[0];
-  const brand = collections.filter(
+
+  const home = collections?.filter(
+    (colection) => colection._type === "home"
+  )[0];
+  const brand = collections?.filter(
     (colection) => colection._type === "brand"
   )[0];
-  const about = collections.filter(
+  const about = collections?.filter(
     (colection) => colection._type === "about"
   )[0];
-  const productions = collections.filter(
+  const productions = collections?.filter(
     (colection) => colection._type === "productions"
   )[0];
   generateIndex(brand, home);
