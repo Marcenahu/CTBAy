@@ -1,0 +1,72 @@
+:root {
+  --background: #822c2c;
+  --background-secondary: #e5e5e5;
+  --background-tertiary: #000000;
+  --font: #ffffff;
+  --shadow: 5px 5px 0px rgba(0, 0, 0, 0.75);
+  --smaller: 1rem;
+  --small: 1.1rem;
+  --medium: 1.4rem;
+  --large: 1.5rem;
+  --xlarge: 2rem;
+}
+@media only screen and (max-width: 750px) {
+  :root {
+    --smaller: 1rem;
+    --small: 1rem;
+    --medium: 1.2rem;
+    --large: 1.5rem;
+    --xlarge: 1.8rem;
+  }
+}
+@font-face {
+  font-family: "Signika";
+  src: url("./fonts/Signika-Regular.ttf");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Signika";
+  src: url("./fonts/Signika-Medium.ttf");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Signika";
+  src: url("./fonts/Signika-SemiBold.ttf");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Signika";
+  src: url("./fonts/Signika-Bold.ttf");
+  font-weight: 800;
+  font-display: swap;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  text-align: center;
+  font-family: "Signika", sans-serif;
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--font);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+a {
+  display: flex;
+  color: var(--font);
+  text-decoration: none;
+  width: fit-content;
+}
