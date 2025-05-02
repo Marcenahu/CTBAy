@@ -98,7 +98,7 @@ const generateIndex = (brand, home) => {
   </body>
 </html>
 `;
-
+  fs.mkdirSync("./generated", { recursive: true });
   fs.writeFileSync(`./generated/index.html`, htmlContent);
 };
 
