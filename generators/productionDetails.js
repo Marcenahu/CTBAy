@@ -178,6 +178,7 @@ const generateProductionDetails = (brand, productions) => {
                   )});
                 "
               ></div>
+              <script src="${relativePaths.lib}/share.js"></script>
               <button class="share" onclick="share()">
                 Compartir
                 <svg
@@ -202,7 +203,6 @@ const generateProductionDetails = (brand, productions) => {
             </article>
           </div>
           ${footer(relativePaths, brand)}
-          <script src="${relativePaths.lib}/share.js"></script>
         </main>
         <script src="${relativePaths.lib}/swup.js"></script>
         <script src="${relativePaths.lib}/swupConfig.js"></script>
