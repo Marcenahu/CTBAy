@@ -386,11 +386,12 @@ const generateProductions = (brand, productions) => {
   </body>
 </html>
 `;
-
+  fs.mkdirSync("./generated/producciones/propias", { recursive: true });
   fs.writeFileSync(
     `./generated/producciones/propias/index.html`,
     ownProductions
   );
+  fs.mkdirSync("./generated/producciones/co-producciones", { recursive: true });
   fs.writeFileSync(
     `./generated/producciones/co-producciones/index.html`,
     coProductions

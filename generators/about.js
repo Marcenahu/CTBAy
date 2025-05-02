@@ -143,6 +143,7 @@ const generateAbout = (brand, about) => {
   </body>
 </html>
 `;
+  fs.mkdirSync("./generated/quienes-somos", { recursive: true });
   fs.writeFileSync(`./generated/quienes-somos/index.html`, htmlContent);
 };
 
