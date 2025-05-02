@@ -6,6 +6,7 @@
   padding: 0.5rem 0;
   padding-left: 3rem;
   top: 3rem;
+  z-index: 1;
   width: calc(100% - 3rem);
 }
 .logo {
