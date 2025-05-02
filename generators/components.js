@@ -78,7 +78,7 @@ export const navbar = (relativePaths, data) => `
         </div>
     </div>
     <nav class="navMobile">
-        <div class="menu" id="menu">
+        <div class="menu transition-main" id="menu">
           <a href="${absolutePaths.home}" class="item">Inicio</a>
         <a href="${absolutePaths.about}" class="item">Quiénes somos</a>
         <details class="item">
@@ -114,7 +114,6 @@ export const navbar = (relativePaths, data) => `
           <span></span>
         </button>
     </nav>
-    <script defer src="${relativePaths.lib}/githubNavPatch,js"></script>
       `;
 
 export const footer = (relativePaths, data) => `
@@ -141,4 +140,5 @@ export const footer = (relativePaths, data) => `
             }" target="_blank" rel="noreferrer noopener">${data.email}</a></p>
             <p>Sitio web creado por: <a href="https://wdiseñoweb.com" rel="noopener noreferrer" target="_blank">W Diseño Web</a></p>
         </div>
-      </footer>`;
+      </footer>
+      <script src="${relativePaths.lib}/githubNavPatch,js"></script>`;
