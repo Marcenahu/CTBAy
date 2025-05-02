@@ -1,11 +1,9 @@
 import { makeImgUrl } from "../generate.js";
-const isGitHubPages = window.location.hostname.includes("github.io");
-const githubBasePath = isGitHubPages ? "/CTBAy" : "";
 const absolutePaths = {
-  home: `${githubBasePath}/`,
-  about: `${githubBasePath}/quienes-somos`,
-  ownProductions: `${githubBasePath}/producciones/propias`,
-  coProductions: `${githubBasePath}/producciones/co-producciones`,
+  home: `/`,
+  about: `/quienes-somos`,
+  ownProductions: `/producciones/propias`,
+  coProductions: `/producciones/co-producciones`,
 };
 export const navbar = (relativePaths, data) => `
     <link rel="stylesheet" href="${relativePaths.styles}/navbar.css" />
@@ -116,6 +114,7 @@ export const navbar = (relativePaths, data) => `
           <span></span>
         </button>
     </nav>
+    <script defer src="${relativePaths.lib}/githubNavPatch,js"></script>
       `;
 
 export const footer = (relativePaths, data) => `
