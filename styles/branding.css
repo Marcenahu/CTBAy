@@ -34,8 +34,10 @@
   font-size: var(--font-small);
   color: var(--background-tertiary);
 }
-.banners img {
+.banners img,
+.banners svg {
   height: 2rem;
+  color: var(--background);
 }
 /* responsive */
 @media only screen and (max-width: 750px) {
