@@ -183,6 +183,7 @@ const generateLessons = (brand, lessons) => {
               </svg>
             </a>
           </div>
+          </div>
         </div>`
       )}
               ${footer(relativePaths, brand)}
