@@ -171,13 +171,18 @@ details[open] > summary .arrow {
     display: block;
   }
   .navMobile .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     font-size: var(--medium);
     font-weight: 600;
-    height: 3rem;
+    min-height: 3rem;
   }
   .navMobile details div {
     position: relative;
     top: 0;
+    overflow: visible;
   }
   .navMobile details div a {
     font-size: var(--small);
