@@ -5,6 +5,7 @@ const absolutePaths = {
   ownProductions: `/producciones/propias`,
   coProductions: `/producciones/co-producciones`,
   lessons: `/cursos-talleres`,
+  club: `/club-ctbay`,
 };
 export const navbar = (relativePaths, data) => `
     <link rel="stylesheet" href="${relativePaths.styles}/navbar.css" />
@@ -25,7 +26,7 @@ export const navbar = (relativePaths, data) => `
           </div>
         </details>
         <a href="${absolutePaths.lessons}" class="item">Cursos y Talleres</a>
-        <details class="item" style="display:none">
+        <details class="item">
           <summary>Más
             <?xml version="1.0" encoding="utf-8"?>
             <svg class="arrow" width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,9 +34,7 @@ export const navbar = (relativePaths, data) => `
             </svg>
           </summary>
           <div>
-            <a href="/" class="item">Cursos y talleres</a>
-            <a href="/" >Club CTBAy</a>
-            <a href="/" >Teatro para Empresas</a>
+            <a href="${absolutePaths.club}" >Club CTBAy</a>
           </div>
         </details> 
     </nav>
@@ -99,7 +98,7 @@ export const navbar = (relativePaths, data) => `
         </details>
         <a href="${absolutePaths.lessons}" class="item">Cursos y Talleres</a>
         
-       <details class="item" style="display:none">
+       <details class="item">
           <summary>Más
             <?xml version="1.0" encoding="utf-8"?>
             <svg class="arrow" width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,9 +106,7 @@ export const navbar = (relativePaths, data) => `
             </svg>
           </summary>
           <div>
-            <a href="/" class="item">Cursos y talleres</a>
-            <a href="/" >Club CTBAy</a>
-            <a href="/" >Teatro para Empresas</a>
+            <a href="${absolutePaths.club}" >Club CTBAy</a>
           </div>
         </details> 
         </div>

@@ -6,6 +6,7 @@ import generateProductions from "./generators/productions.js";
 import generateProductionDetails from "./generators/productionDetails.js";
 import generateLessons from "./generators/lessons.js";
 import generateLessonDetails from "./generators/lessonDetails.js";
+import generateClub from "./generators/club.js";
 
 export function makeImgUrl(ref, maxquality) {
   const parts = ref?.split("-");
@@ -19,7 +20,7 @@ const fetchData = async () => {
   try {
     const response = await fetch(
       `https://${studioId}.api.sanity.io/v2021-10-21/data/query/${studioDataset}?query=${encodeURIComponent(
-        `*[_type == "brand" || _type == "home" || _type == "about" || _type == "productions" || _type == "lessons"] | order(_createdAt asc)`
+        `*[_type == "brand" || _type == "home" || _type == "about" || _type == "productions" || _type == "lessons" || _type == "club"] | order(_createdAt asc)`
       )}`
     );
     const data = await response.json();
@@ -48,11 +49,15 @@ const generatePages = async () => {
   const lessons = collections?.filter(
     (colection) => colection._type === "lessons"
   )[0];
+  const club = collections?.filter(
+    (colection) => colection._type === "club"
+  )[0];
   generateIndex(brand, home);
   generateAbout(brand, about);
   generateProductions(brand, productions);
   generateProductionDetails(brand, productions);
   generateLessons(brand, lessons);
   generateLessonDetails(brand, lessons);
+  generateClub(brand, club);
 };
 generatePages();

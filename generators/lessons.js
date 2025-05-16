@@ -56,7 +56,7 @@ const generateLessons = (brand, lessons) => {
                   display: flex;
                   align-items: center;
                   justify-content: center;
-                  background-position-y: -100px;
+                  background-position-y: -150px;
                   background-size: cover;
                   height: 18rem;
                   font-size: var(--large);
@@ -68,7 +68,7 @@ const generateLessons = (brand, lessons) => {
                     height: 13rem;
                     padding-bottom: 5rem;
                     align-items: flex-end;
-                    background-position-y: -100px;
+                    background-position-y: center;
                   }
                   .heroTitle {
                     font-size: var(--large);
