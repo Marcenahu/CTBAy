@@ -97,7 +97,7 @@ export const navbar = (relativePaths, data) => `
         </div>
         </details>
         <a href="${absolutePaths.lessons}" class="item">Cursos y Talleres</a>
-        <a href="${absolutePaths.club}" >Club CTBAy</a>
+        <a href="${absolutePaths.club}" class="item">Club CTBAy</a>
         </div>
         <button class="hamburger" id="hamburger">
           <span></span>
