@@ -7,6 +7,7 @@ import generateProductionDetails from "./generators/productionDetails.js";
 import generateLessons from "./generators/lessons.js";
 import generateLessonDetails from "./generators/lessonDetails.js";
 import generateClub from "./generators/club.js";
+import generateAgenda from "./generators/agenda.js";
 
 export function makeImgUrl(ref, maxquality) {
   const parts = ref?.split("-");
@@ -16,11 +17,24 @@ export function makeImgUrl(ref, maxquality) {
   const optimizedSize = maxquality ? "" : "&w=600";
   return `https://cdn.sanity.io/images/${studioId}/${studioDataset}/${id}-${dimentions}.${format}?fm=webp${optimizedSize}`;
 }
+const types = [
+  "brand",
+  "home",
+  "about",
+  "productions",
+  "lessons",
+  "club",
+  "agenda",
+];
 const fetchData = async () => {
   try {
     const response = await fetch(
       `https://${studioId}.api.sanity.io/v2021-10-21/data/query/${studioDataset}?query=${encodeURIComponent(
-        `*[_type == "brand" || _type == "home" || _type == "about" || _type == "productions" || _type == "lessons" || _type == "club"] | order(_createdAt asc)`
+        `*[${types
+          .map(
+            (type, index) => `${index === 0 ? "" : " || "}_type == "${type}"`
+          )
+          .join("")}] | order(_createdAt asc)`
       )}`
     );
     const data = await response.json();
@@ -33,7 +47,6 @@ const fetchData = async () => {
 
 const generatePages = async () => {
   const collections = await fetchData();
-
   const home = collections?.filter(
     (colection) => colection._type === "home"
   )[0];
@@ -52,6 +65,9 @@ const generatePages = async () => {
   const club = collections?.filter(
     (colection) => colection._type === "club"
   )[0];
+  const agenda = collections?.filter(
+    (collection) => collection._type === "agenda"
+  )[0];
   generateIndex(brand, home);
   generateAbout(brand, about);
   generateProductions(brand, productions);
@@ -59,5 +75,6 @@ const generatePages = async () => {
   generateLessons(brand, lessons);
   generateLessonDetails(brand, lessons);
   generateClub(brand, club);
+  generateAgenda(brand, agenda);
 };
 generatePages();

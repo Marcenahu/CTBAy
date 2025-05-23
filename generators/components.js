@@ -6,6 +6,7 @@ const absolutePaths = {
   coProductions: `/producciones/co-producciones`,
   lessons: `/cursos-talleres`,
   club: `/club-ctbay`,
+  agenda: "/agenda",
 };
 export const navbar = (relativePaths, data) => `
     <link rel="stylesheet" href="${relativePaths.styles}/navbar.css" />
@@ -34,7 +35,8 @@ export const navbar = (relativePaths, data) => `
             </svg>
           </summary>
           <div>
-            <a href="${absolutePaths.club}" >Club CTBAy</a>
+            <a href="${absolutePaths.club}">Club CTBAy</a>
+            <a href="${absolutePaths.agenda}">Agenda</a>
           </div>
         </details> 
     </nav>
@@ -98,6 +100,7 @@ export const navbar = (relativePaths, data) => `
         </details>
         <a href="${absolutePaths.lessons}" class="item">Cursos y Talleres</a>
         <a href="${absolutePaths.club}" class="item">Club CTBAy</a>
+        <a href="${absolutePaths.agenda}" class="item">Agenda</a>
         </div>
         <button class="hamburger" id="hamburger">
           <span></span>
