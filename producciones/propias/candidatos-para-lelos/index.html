@@ -228,7 +228,15 @@
                   background-image: url(https://cdn.sanity.io/images/vo1etoba/production/f98235fd7c61338fda86a8caf76c0f00527f3c7e-1475x1987.jpg?fm=webp&w=600);
                 "
               ></div>
-              <button class="share" id="share">
+              <button class="share" id="share" onclick={() => {
+                  if (navigator.share) {
+                    navigator
+                    .share({
+                      url: window.location.href,
+                    })
+                    .catch(console.error);
+                  }
+                }>
                 Compartir
                 <svg
                   class="icon"
@@ -287,7 +295,6 @@ CANDIDATOS PARA LELOS. EL lado gracioso de algo muy serio.
       </footer>
       
         </main>
-        <script src="../../../lib/shareButton.js"></script>
         <script src="../../../lib/swup.js"></script>
         <script src="../../../lib/swupConfig.js"></script>
       </body>

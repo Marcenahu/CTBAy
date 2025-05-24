@@ -228,7 +228,15 @@
                   background-image: url(https://cdn.sanity.io/images/vo1etoba/production/74856009e30ea79da90ba29858542d22d1f0a869-1075x895.jpg?fm=webp&w=600);
                 "
               ></div>
-              <button class="share" id="share">
+              <button class="share" id="share" onclick={() => {
+                  if (navigator.share) {
+                    navigator
+                    .share({
+                      url: window.location.href,
+                    })
+                    .catch(console.error);
+                  }
+                }>
                 Compartir
                 <svg
                   class="icon"
@@ -276,7 +284,6 @@ Desde su aspecto humano y profesional, desfilan los hechos más importantes re
       </footer>
       
         </main>
-        <script src="../../../lib/shareButton.js"></script>
         <script src="../../../lib/swup.js"></script>
         <script src="../../../lib/swupConfig.js"></script>
       </body>
