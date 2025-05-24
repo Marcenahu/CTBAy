@@ -136,12 +136,6 @@ const generateAgenda = (brand, agenda) => {
 
 <div id="calendar"></div>
 
-<script src="${
-    relativePaths.lib
-  }/fullcalendar/dist/index.global.min.js"></script>
-<script src="${
-    relativePaths.lib
-  }/fullcalendar/packages/core/locales/es.global.js"></script>
 
 <script>
   function showModal(html) {
@@ -176,6 +170,8 @@ const generateAgenda = (brand, agenda) => {
     calendar.render();
   });
 </script>
+<script src="/lib/fullcalendar/dist/index.global.min.js"></script>
+<script src="/lib/fullcalendar/packages/core/locales/es.global.js"></script>
       ${footer(relativePaths, brand)}
     </main>
     <script src="${relativePaths.lib}/swup.js"></script>
