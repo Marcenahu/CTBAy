@@ -191,51 +191,16 @@
   }
 </style>
 
-<dialog id="modal-event">
-  <div class="modal-container">
-    <button onclick="document.getElementById('modal-event').close()">&times;</button>
-    <div id="modal-content"></div>
-  </div>
-</dialog>
-
-<div id="calendar"></div>
-
-
-<script>
-  function showModal(html) {
-    const modal = document.getElementById('modal-event');
-    document.getElementById('modal-content').innerHTML = html;
-    modal.showModal();
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: window.innerWidth < 768 ? 'listMonth' : 'dayGridMonth',
-      locale: 'es',
-      events: [{"_key":"1271057e4c11","_type":"event","description":"Descripción de la prueba","end":"2025-05-24T01:33:00.000Z","image":"https://cdn.sanity.io/images/vo1etoba/production/cfabdf677984aec9a11f4c86a14e06d4c6091314-600x392.jpg?fm=webp&w=600","location":"sala 6","price":14000,"start":"2025-05-24T01:33:00.000Z","title":"Prueba"}],
-      eventClick: function (info) {
-        const props = info.event.extendedProps;
-
-        const content = `
-          <h3>${info.event.title}</h3>
-          ${props?.image ? `<img src="${props.image}" alt="${info.event.title}" style="max-width: 100%; height: auto;" />` : ""}
-          ${props?.description ? `<p>${props.description}</p>` : ""}
-          ${props?.location ? `<p><strong>Ubicación:</strong> ${props.location}</p>` : ""}
-          ${props?.price ? `<p><strong>Precio de entrada:</strong> $${props.price}</p>` : ""}
-          ${info.event.start ? `<p><strong>Inicio:</strong> ${info.event.start.toLocaleString()}</p>` : ""}
-          ${info.event.end ? `<p><strong>Fin:</strong> ${info.event.end.toLocaleString()}</p>` : ""}
-        `;
-
-        showModal(content);
-      }
-    });
-
-    calendar.render();
-  });
-</script>
-<script src="/lib/fullcalendar/dist/index.global.min.js"></script>
-<script src="/lib/fullcalendar/packages/core/locales/es.global.js"></script>
+      <dialog id="modal-event">
+        <div class="modal-container">
+        <button onclick="document.getElementById('modal-event').close()">&times;</button>
+        <div id="modal-content"></div>
+        </div>
+      </dialog>
+      <div id="calendar"></div>
+      <script src="/lib/fullcalendar/dist/index.global.min.js"></script>
+      <script src="/lib/fullcalendar/packages/core/locales/es.global.js"></script>
+      <script src="/lib/calendarInit.js"></script>
       
     <link rel="stylesheet" href="../styles/footer.css" />
     <footer>
