@@ -11,10 +11,6 @@ const relativePaths = {
 const generateAgenda = (brand, agenda) => {
   const heroImg = makeImgUrl(agenda?.background?.asset?._ref, true);
   const logo = makeImgUrl(brand?.image?.asset?._ref, true);
-  const events = agenda.List.map((item) => ({
-    ...item,
-    image: makeImgUrl(item.image.asset._ref) || "",
-  }));
   const htmlContent = `<!DOCTYPE html>
 <html lang="es">
   <head>
@@ -127,51 +123,16 @@ const generateAgenda = (brand, agenda) => {
   }
 </style>
 
-<dialog id="modal-event">
-  <div class="modal-container">
-    <button onclick="document.getElementById('modal-event').close()">&times;</button>
-    <div id="modal-content"></div>
-  </div>
-</dialog>
-
-<div id="calendar"></div>
-
-
-<script>
-  function showModal(html) {
-    const modal = document.getElementById('modal-event');
-    document.getElementById('modal-content').innerHTML = html;
-    modal.showModal();
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: window.innerWidth < 768 ? 'listMonth' : 'dayGridMonth',
-      locale: 'es',
-      events: ${JSON.stringify(events)},
-      eventClick: function (info) {
-        const props = info.event.extendedProps;
-
-        const content = \`
-          <h3>\${info.event.title}</h3>
-          \${props?.image ? \`<img src="\${props.image}" alt="\${info.event.title}" style="max-width: 100%; height: auto;" />\` : ""}
-          \${props?.description ? \`<p>\${props.description}</p>\` : ""}
-          \${props?.location ? \`<p><strong>Ubicación:</strong> \${props.location}</p>\` : ""}
-          \${props?.price ? \`<p><strong>Precio de entrada:</strong> $\${props.price}</p>\` : ""}
-          \${info.event.start ? \`<p><strong>Inicio:</strong> \${info.event.start.toLocaleString()}</p>\` : ""}
-          \${info.event.end ? \`<p><strong>Fin:</strong> \${info.event.end.toLocaleString()}</p>\` : ""}
-        \`;
-
-        showModal(content);
-      }
-    });
-
-    calendar.render();
-  });
-</script>
-<script src="/lib/fullcalendar/dist/index.global.min.js"></script>
-<script src="/lib/fullcalendar/packages/core/locales/es.global.js"></script>
+      <dialog id="modal-event">
+        <div class="modal-container">
+        <button onclick="document.getElementById('modal-event').close()">&times;</button>
+        <div id="modal-content"></div>
+        </div>
+      </dialog>
+      <div id="calendar"></div>
+      <script src="/lib/fullcalendar/dist/index.global.min.js"></script>
+      <script src="/lib/fullcalendar/packages/core/locales/es.global.js"></script>
+      <script src="/lib/calendarInit.js"></script>
       ${footer(relativePaths, brand)}
     </main>
     <script src="${relativePaths.lib}/swup.js"></script>
