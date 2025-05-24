@@ -178,7 +178,15 @@ const generateProductionDetails = (brand, productions) => {
                   )});
                 "
               ></div>
-              <button class="share" id="share">
+              <button class="share" id="share" onclick={() => {
+                  if (navigator.share) {
+                    navigator
+                    .share({
+                      url: window.location.href,
+                    })
+                    .catch(console.error);
+                  }
+                }>
                 Compartir
                 <svg
                   class="icon"
@@ -203,7 +211,6 @@ const generateProductionDetails = (brand, productions) => {
           </div>
           ${footer(relativePaths, brand)}
         </main>
-        <script src="${relativePaths.lib}/shareButton.js"></script>
         <script src="${relativePaths.lib}/swup.js"></script>
         <script src="${relativePaths.lib}/swupConfig.js"></script>
       </body>
