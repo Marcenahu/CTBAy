@@ -134,4 +134,4 @@ export const footer = (relativePaths, data) => `
             <p>Sitio web creado por: <a href="https://wdiseñoweb.com" rel="noopener noreferrer" target="_blank">W Diseño Web</a></p>
         </div>
       </footer>
-      <script src="${relativePaths.lib}/githubNavPatch,js"></script>`;
+      `;
