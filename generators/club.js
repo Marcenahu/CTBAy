@@ -1,12 +1,6 @@
-import { makeImgUrl } from "../generate.js";
+import { makeImgUrl, paths } from "../generate.js";
 import { navbar, footer } from "./components.js";
 import fs from "fs";
-const relativePaths = {
-  styles: "../styles",
-  lib: "../lib",
-  media: "../media",
-  manifest: "../manifest.json",
-};
 
 const generateClub = (brand, club) => {
   const heroImg = makeImgUrl(club?.background?.asset?._ref, true);
@@ -18,7 +12,7 @@ const generateClub = (brand, club) => {
       <meta charset="UTF-8" />
       <title>Compañía Teatral de los Buenos Ayres</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="manifest" href="${relativePaths.manifest}" />
+      <link rel="manifest" href="${paths.files.manifest}" />
       <link rel="apple-touch-icon" href="${logo}" />
       <link rel="icon" href="${logo}" />
       <link rel="icon" type="image/x-icon" href="${logo}" />
@@ -46,10 +40,10 @@ const generateClub = (brand, club) => {
       />
       <meta name="twitter:image" content="${logo}" />
       <!-- styles -->
-      <link rel="stylesheet" href="${relativePaths.styles}/root.css" />
+      <link rel="stylesheet" href="${paths.files.styles}/root.css" />
     </head>
     <body>
-      ${navbar(relativePaths, brand)}
+      ${navbar(brand)}
        <main id="swup" class="transition-main">
         <style>
           .hero {
@@ -122,10 +116,10 @@ const generateClub = (brand, club) => {
 </svg></a>
             </div>
         </div>
-        ${footer(relativePaths, brand)}
+        ${footer(brand)}
       </main>
-      <script src="${relativePaths.lib}/swup.js"></script>
-      <script src="${relativePaths.lib}/swupConfig.js"></script>
+      <script src="${paths.files.lib}/swup.js"></script>
+      <script src="${paths.files.lib}/swupConfig.js"></script>
     </body>
   </html>
   `;

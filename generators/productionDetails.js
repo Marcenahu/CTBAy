@@ -1,12 +1,6 @@
-import { makeImgUrl } from "../generate.js";
+import { makeImgUrl, paths } from "../generate.js";
 import { navbar, footer } from "./components.js";
 import fs from "fs";
-const relativePaths = {
-  styles: "../../../styles",
-  lib: "../../../lib",
-  media: "../../../media",
-  manifest: "../../../manifest.json",
-};
 
 const generateProductionDetails = (brand, productions) => {
   const heroImg = makeImgUrl(productions?.background?.asset?._ref, true);
@@ -25,7 +19,7 @@ const generateProductionDetails = (brand, productions) => {
         <meta charset="UTF-8" />
         <title>Compañía Teatral de los Buenos Ayres</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="manifest" href="${relativePaths.manifest}" />
+        <link rel="manifest" href="${paths.files.manifest}" />
         <link rel="apple-touch-icon" href="${logo}" />
         <link rel="icon" href="${logo}" />
         <link rel="icon" type="image/x-icon" href="${logo}" />
@@ -57,10 +51,10 @@ const generateProductionDetails = (brand, productions) => {
           production.portrait.asset._ref
         )}" />
         <!-- styles -->
-        <link rel="stylesheet" href="${relativePaths.styles}/root.css" />
+        <link rel="stylesheet" href="${paths.files.styles}/root.css" />
       </head>
       <body>
-        ${navbar(relativePaths, brand)}
+        ${navbar(brand)}
         <main id="swup" class="transition-main">
           <style>
             .hero {
@@ -209,10 +203,10 @@ const generateProductionDetails = (brand, productions) => {
               <p class="synopsis">${production.synopsis}</p>
             </article>
           </div>
-          ${footer(relativePaths, brand)}
+          ${footer(brand)}
         </main>
-        <script src="${relativePaths.lib}/swup.js"></script>
-        <script src="${relativePaths.lib}/swupConfig.js"></script>
+        <script src="${paths.files.lib}/swup.js"></script>
+        <script src="${paths.files.lib}/swupConfig.js"></script>
       </body>
     </html>
     `

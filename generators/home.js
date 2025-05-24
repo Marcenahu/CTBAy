@@ -1,14 +1,8 @@
-import { makeImgUrl } from "../generate.js";
+import { makeImgUrl, paths } from "../generate.js";
 import { navbar, footer } from "./components.js";
 import fs from "fs";
-const relativePaths = {
-  styles: "./styles",
-  lib: "./lib",
-  media: "./media",
-  manifest: "./manifest.json",
-};
 
-const generateIndex = (brand, home) => {
+const generateHome = (brand, home) => {
   const heroImg = makeImgUrl(home?.background?.asset?._ref, true);
   const logo = makeImgUrl(brand?.image?.asset?._ref, true);
 
@@ -18,7 +12,7 @@ const generateIndex = (brand, home) => {
     <meta charset="UTF-8" />
     <title>Compañía Teatral de los Buenos Ayres</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="${relativePaths.manifest}" />
+    <link rel="manifest" href="${paths.files.manifest}" />
     <link rel="apple-touch-icon" href="${logo}" />
     <link rel="icon" href="${logo}" />
     <link rel="icon" type="image/x-icon" href="${logo}" />
@@ -46,10 +40,10 @@ const generateIndex = (brand, home) => {
     />
     <meta name="twitter:image" content="${logo}" />
     <!-- styles -->
-    <link rel="stylesheet" href="${relativePaths.styles}/root.css" />
+    <link rel="stylesheet" href="${paths.files.styles}/root.css" />
   </head>
   <body>
-    ${navbar(relativePaths, brand)}
+    ${navbar(brand)}
     <main id="swup" class="transition-main">
       <style>
         .hero {
@@ -91,10 +85,10 @@ const generateIndex = (brand, home) => {
           talleres y actividades.
         </h1>
       </div>
-      ${footer(relativePaths, brand)}
+      ${footer(brand)}
     </main>
-    <script src="${relativePaths.lib}/swup.js"></script>
-    <script src="${relativePaths.lib}/swupConfig.js"></script>
+    <script src="${paths.files.lib}/swup.js"></script>
+    <script src="${paths.files.lib}/swupConfig.js"></script>
   </body>
 </html>
 `;
@@ -102,4 +96,4 @@ const generateIndex = (brand, home) => {
   fs.writeFileSync(`./generated/index.html`, htmlContent);
 };
 
-export default generateIndex;
+export default generateHome;

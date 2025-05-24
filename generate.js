@@ -1,6 +1,6 @@
 const studioId = "vo1etoba";
 const studioDataset = "production";
-import generateIndex from "./generators/home.js";
+import generateHome from "./generators/home.js";
 import generateAbout from "./generators/about.js";
 import generateProductions from "./generators/productions.js";
 import generateProductionDetails from "./generators/productionDetails.js";
@@ -45,6 +45,23 @@ const fetchData = async () => {
   }
 };
 
+export const paths = {
+  files: {
+    styles: "/styles",
+    lib: "/lib",
+    media: "/media",
+    manifest: "/manifest.json",
+  },
+  pages: {
+    home: "/",
+    about: "/quienes-somos",
+    ownProductions: "/producciones/propias",
+    coProductions: "/producciones/co-producciones",
+    lessons: "/cursos-talleres",
+    club: "/club-ctbay",
+    agenda: "/agenda",
+  },
+};
 const generatePages = async () => {
   const collections = await fetchData();
   const home = collections?.filter(
@@ -66,9 +83,9 @@ const generatePages = async () => {
     (colection) => colection._type === "club"
   )[0];
   const agenda = collections?.filter(
-    (collection) => collection._type === "agenda"
+    (colection) => colection._type === "agenda"
   )[0];
-  generateIndex(brand, home);
+  generateHome(brand, home);
   generateAbout(brand, about);
   generateProductions(brand, productions);
   generateProductionDetails(brand, productions);
