@@ -178,7 +178,7 @@ const generateProductionDetails = (brand, productions) => {
                   )});
                 "
               ></div>
-              <button class="share" onclick={() => {
+              <button class="share" onclick="() => {
                   if (navigator.share) {
                     navigator
                     .share({
@@ -186,7 +186,7 @@ const generateProductionDetails = (brand, productions) => {
                     })
                     .catch(console.error);
                   }
-                }}>
+                }">
                 Compartir
                 <svg
                   class="icon"
