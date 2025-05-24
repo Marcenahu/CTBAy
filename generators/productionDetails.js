@@ -203,6 +203,7 @@ const generateProductionDetails = (brand, productions) => {
           </div>
           ${footer(relativePaths, brand)}
         </main>
+        <script src="${relativePaths.lib}/shareButton.js"></script>
         <script src="${relativePaths.lib}/swup.js"></script>
         <script src="${relativePaths.lib}/swupConfig.js"></script>
       </body>
