@@ -33,7 +33,7 @@ export const navbar = (data) => `
           </div>
         </details> 
     </nav>
-    <link rel="stylesheet" href="${paths.pages.styles}/branding.css" />
+    <link rel="stylesheet" href="${paths.files.styles}/branding.css" />
     <div class="branding">
         <img
           class="logo"
@@ -104,7 +104,7 @@ export const navbar = (data) => `
       `;
 
 export const footer = (data) => `
-    <link rel="stylesheet" href="${paths.pages.styles}/footer.css" />
+    <link rel="stylesheet" href="${paths.files.styles}/footer.css" />
     <footer>
     <div class="list">
     <img
