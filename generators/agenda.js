@@ -108,12 +108,15 @@ const generateAgenda = (brand, agenda) => {
   }
 
   .modal-container img {
-    border-radius: 1rem;
+    width: 100%;
     max-width: 10rem;
+    height: auto;
   }
+  
   .modal-content{
     display:flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
   }
   .fc-theme-standard .fc-list-day-cushion {
