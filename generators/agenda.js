@@ -111,9 +111,10 @@ const generateAgenda = (brand, agenda) => {
     width: 100%;
     max-width: 10rem;
     height: auto;
+    padding: 1rem;
   }
   
-  .modal-content{
+  #modal-content{
     display:flex;
     flex-direction: column;
     align-items: center;
