@@ -111,7 +111,7 @@ const generateAgenda = (brand, agenda) => {
     width: 100%;
     max-width: 10rem;
     height: auto;
-    padding: 1rem;
+    border-radius: 1rem;
   }
   
   #modal-content{
