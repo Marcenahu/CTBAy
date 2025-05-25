@@ -111,7 +111,11 @@ const generateAgenda = (brand, agenda) => {
     border-radius: 1rem;
     max-width: 10rem;
   }
-
+  .modal-content{
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
   .fc-theme-standard .fc-list-day-cushion {
     background-color: black;
   }
