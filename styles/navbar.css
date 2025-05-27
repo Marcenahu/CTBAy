@@ -68,7 +68,9 @@ summary .arrow {
 details[open] > summary .arrow {
   transform: rotate(90deg);
 }
-
+.navbar .moreSubmenu {
+  display: none;
+}
 /* Nav Mobile */
 .navMobile {
   display: none;
@@ -161,6 +163,14 @@ details[open] > summary .arrow {
   display: none;
 }
 /* responsive */
+@media only screen and (max-width: 1200px) {
+  .navbar .moreItem {
+    display: none;
+  }
+  .navbar .moreSubmenu {
+    display: flex;
+  }
+}
 @media only screen and (max-width: 750px) {
   .navbar {
     display: none;
