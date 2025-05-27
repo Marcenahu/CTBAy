@@ -133,8 +133,8 @@ const generateAgenda = (brand, agenda) => {
       </dialog>
       <div id="calendar"></div>
       <script src="/lib/fullcalendar/dist/index.global.min.js"></script>
-      <script src="/lib/fullcalendar/packages/core/locales/es.global.js"></script>
       <script src="/lib/calendarInit.js"></script>
+      <script src="/lib/fullcalendar/packages/core/locales/es.global.js"></script>
       ${footer(brand)}
     </main>
     <script src="${paths.files.lib}/swup.js"></script>
