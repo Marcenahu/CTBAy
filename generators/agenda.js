@@ -131,7 +131,6 @@ const generateAgenda = (brand, agenda) => {
   margin: 2rem auto;
   animation: spin988 2s linear infinite;
 }
-
 .loader .circle {
   --dim: 1.2rem;
   width: var(--dim);
@@ -200,7 +199,6 @@ const generateAgenda = (brand, agenda) => {
       </div>
       <script src="/lib/fullcalendar/dist/index.global.min.js"></script>
       <script src="/lib/calendarInit.js"></script>
-      <script src="/lib/fullcalendar/packages/core/locales/es.global.js"></script>
       ${footer(brand)}
     </main>
     <script src="${paths.files.lib}/swup.js"></script>
