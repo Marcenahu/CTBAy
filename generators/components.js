@@ -20,7 +20,9 @@ export const navbar = (data) => `
           </div>
         </details>
         <a href="${paths.pages.lessons}" class="item">Cursos y Talleres</a>
-        <details class="item">
+        <a href="${paths.pages.club}" class="item moreItem">Club CTBAy</a>
+        <a href="${paths.pages.agenda}" class="item moreItem">Agenda</a>
+        <details class="item moreSubmenu">
           <summary>Más
             <?xml version="1.0" encoding="utf-8"?>
             <svg class="arrow" width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
