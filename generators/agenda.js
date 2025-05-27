@@ -123,6 +123,65 @@ const generateAgenda = (brand, agenda) => {
   .fc-theme-standard .fc-list-day-cushion {
     background-color: black;
   }
+.loader {
+  --dim: 3rem;
+  width: var(--dim);
+  height: var(--dim);
+  position: relative;
+  margin: 2rem auto;
+  animation: spin988 2s linear infinite;
+}
+
+.loader .circle {
+  --dim: 1.2rem;
+  width: var(--dim);
+  height: var(--dim);
+  background-color: var(--background-secondary);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.loader .circle:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.loader .circle:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+
+.loader .circle:nth-child(3) {
+  bottom: 0;
+  left: 0;
+}
+
+.loader .circle:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spin988 {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+
+  20%, 25% {
+    transform: scale(1.3) rotate(90deg);
+  }
+
+  45%, 50% {
+    transform: scale(1) rotate(180deg);
+  }
+
+  70%, 75% {
+    transform: scale(1.3) rotate(270deg);
+  }
+
+  95%, 100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
 </style>
 
       <dialog id="modal-event">
@@ -131,7 +190,14 @@ const generateAgenda = (brand, agenda) => {
         <div id="modal-content"></div>
         </div>
       </dialog>
-      <div id="calendar"></div>
+      <div id="calendar">
+          <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+      </div>
       <script src="/lib/fullcalendar/dist/index.global.min.js"></script>
       <script src="/lib/calendarInit.js"></script>
       <script src="/lib/fullcalendar/packages/core/locales/es.global.js"></script>
