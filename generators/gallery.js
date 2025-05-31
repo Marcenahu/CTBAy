@@ -169,7 +169,7 @@ const generateGallery = (brand, gallery) => {
                         <br>
                         <img src="${makeImgUrl(item?.image?.asset?._ref)}"/> 
                         <p class="dialogDescription">
-                        ${item?.description}
+                        ${item?.description ? item?.description : ""}
                         </p>
                     </dialog>
                     `
