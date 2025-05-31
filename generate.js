@@ -65,7 +65,7 @@ export const paths = {
     club: "/club-ctbay",
     agenda: "/agenda",
     noticias: "/noticias",
-    galeria: "/gallería",
+    galeria: "/galería",
   },
 };
 const generatePages = async () => {
