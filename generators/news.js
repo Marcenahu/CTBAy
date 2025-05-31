@@ -127,7 +127,6 @@ const generateNews = (brand, news) => {
           padding: 1rem;
           width: 90%;
           max-width: 50rem;
-          margin-top: 1rem;
           background-color: var(--background);
           color: var(--font);
         }
