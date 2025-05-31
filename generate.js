@@ -9,6 +9,7 @@ import generateLessonDetails from "./generators/lessonDetails.js";
 import generateClub from "./generators/club.js";
 import generateAgenda from "./generators/agenda.js";
 import generateNews from "./generators/news.js";
+import generateGallery from "./generators/gallery.js";
 
 export function makeImgUrl(ref, maxquality) {
   const parts = ref?.split("-");
@@ -27,6 +28,7 @@ const types = [
   "club",
   "agenda",
   "news",
+  "gallery",
 ];
 const fetchData = async () => {
   try {
@@ -63,6 +65,7 @@ export const paths = {
     club: "/club-ctbay",
     agenda: "/agenda",
     noticias: "/noticias",
+    galeria: "/gallery",
   },
 };
 const generatePages = async () => {
@@ -91,6 +94,9 @@ const generatePages = async () => {
   const news = collections?.filter(
     (colection) => colection._type === "news"
   )[0];
+  const gallery = collections?.filter(
+    (colection) => colection._type === "gallery"
+  )[0];
   generateHome(brand, home);
   generateAbout(brand, about);
   generateProductions(brand, productions);
@@ -100,5 +106,6 @@ const generatePages = async () => {
   generateClub(brand, club);
   generateAgenda(brand, agenda);
   generateNews(brand, news);
+  generateGallery(brand, gallery);
 };
 generatePages();

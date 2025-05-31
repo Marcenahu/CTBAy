@@ -22,6 +22,7 @@ export const navbar = (data) => `
         <a href="${paths.pages.club}" class="item moreItem">Club CTBAy</a>
         <a href="${paths.pages.agenda}" class="item moreItem">Agenda</a>
         <a href="${paths.pages.noticias}" class="item moreItem">Noticias</a>
+        <a href="${paths.pages.galeria}" class="item moreItem">Galería</a>
         <details class="item moreSubmenu">
           <summary>Más
             <?xml version="1.0" encoding="utf-8"?>
@@ -33,6 +34,7 @@ export const navbar = (data) => `
             <a href="${paths.pages.club}">Club CTBAy</a>
             <a href="${paths.pages.agenda}">Agenda</a>
             <a href="${paths.pages.noticias}">Noticias</a>
+            <a href="${paths.pages.galeria}">Galería</a>
           </div>
         </details> 
     </nav>
@@ -103,7 +105,8 @@ export const navbar = (data) => `
         <a href="${paths.pages.lessons}" class="item">Cursos y Talleres</a>
         <a href="${paths.pages.club}" class="item">Club CTBAy</a>
         <a href="${paths.pages.agenda}" class="item">Agenda</a>
-        <a href="${paths.pages.noticias}">Noticias</a>
+        <a href="${paths.pages.noticias}" class="item">Noticias</a>
+        <a href="${paths.pages.galeria}" class="item">Galería</a>
           <a class="ticket">
             ¡Conseguí tu ticket!
             <svg width="2rem" height="2rem" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">

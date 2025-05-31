@@ -2,8 +2,8 @@ import { makeImgUrl, paths } from "../generate.js";
 import { navbar, footer } from "./components.js";
 import fs from "fs";
 
-const generateNews = (brand, news) => {
-  const heroImg = makeImgUrl(news.background?.asset?._ref, true);
+const generateGallery = (brand, gallery) => {
+  const heroImg = makeImgUrl(gallery.background?.asset?._ref, true);
   const logo = makeImgUrl(brand?.image?.asset?._ref, true);
   const innerHTML = `<!DOCTYPE html>
 <html lang="es">
@@ -69,7 +69,7 @@ const generateNews = (brand, news) => {
         }
       </style>
       <div class="hero" style="background-image: url(${heroImg})">
-        <h2>Noticias</h2>
+        <h2>Galería<h2>
       </div>
       <style>
         .cards {
@@ -81,21 +81,21 @@ const generateNews = (brand, news) => {
           gap: 4rem;
           width: calc(100% - 8rem);
           min-height: 15rem;
-        }
-        .card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-between;
-          background-color: var(--background-tertiary);
-          width: 100%;
-          max-width: 15rem;
-          border-radius: 1rem;
-          overflow: hidden;
-          border: 1rem solid var(--background-tertiary);
-          gap: 1rem;
-          cursor: pointer;
-          height: fit-content;
+          }
+          .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--background-tertiary);
+            width: 100%;
+            max-width: 15rem;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1rem solid var(--background-tertiary);
+            gap: 1rem;
+            cursor: pointer;
+            height: fit-content;
         }
         .card img {
           display: flex;
@@ -158,28 +158,25 @@ const generateNews = (brand, news) => {
       </style>
       <div class="cards">
       ${
-        news?.list
-          ? news?.list
+        gallery?.list
+          ? gallery?.list
               ?.map(
-                (news, index) =>
-                  `<div class="card" onclick="document.getElementById('detail${index}').showModal()"><img  src="${makeImgUrl(
-                    news.image.asset._ref
-                  )}"/> <h2 class="title">${
-                    news?.title
-                  }</h2> <p class="description">${news?.description}</p></div>
-          <dialog id="detail${index}">
-            <button class="btnClose" onclick="document.getElementById('detail${index}').close()">x</button>
-            <br>
-            <img src="${makeImgUrl(news?.image?.asset?._ref)}"/> 
-              <h2 class="title">${news?.title}</h2>
-            <p class="dialogDescription">
-            ${news?.description}
-            </p>
-          </dialog>
-          `
+                (item, index) =>
+                  `<div class="card" onclick="document.getElementById('detail${index}').showModal()">
+                        <img src="${makeImgUrl(item.image.asset._ref)}"/>
+                    </div>
+                    <dialog id="detail${index}">
+                        <button class="btnClose" onclick="document.getElementById('detail${index}').close()">x</button>
+                        <br>
+                        <img src="${makeImgUrl(item?.image?.asset?._ref)}"/> 
+                        <p class="dialogDescription">
+                        ${item?.description}
+                        </p>
+                    </dialog>
+                    `
               )
               .join("")
-          : "<p><i>No hay noticias actualmente</i></p>"
+          : "<p><i>No hay imágenes en galería actualmente</i></p>"
       }
       </div>
       ${footer(brand)}
@@ -189,8 +186,8 @@ const generateNews = (brand, news) => {
   </body>
 </html>
 `;
-  fs.mkdirSync("./generated/noticias", { recursive: true });
-  fs.writeFileSync(`./generated/noticias/index.html`, innerHTML);
+  fs.mkdirSync("./generated/galería", { recursive: true });
+  fs.writeFileSync(`./generated/galería/index.html`, innerHTML);
 };
 
-export default generateNews;
+export default generateGallery;
