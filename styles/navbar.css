@@ -201,4 +201,14 @@ details[open] > summary .arrow {
     padding: 0;
     width: 100%;
   }
+  .navMobile .ticket,
+  .navMobile .social,
+  .navMobile .email {
+    border-radius: 0.5rem;
+  }
+  .navMobile img,
+  .navMobile svg {
+    height: 2rem;
+    color: var(--background);
+  }
 }

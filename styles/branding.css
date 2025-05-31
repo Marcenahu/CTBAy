@@ -24,18 +24,17 @@
   gap: 1rem;
 }
 .email,
-.social {
+.social,
+.ticket {
   display: flex;
   align-items: center;
   border-radius: 0.5rem 0 0 0.5rem;
   padding: 0.3rem 1rem;
   gap: 1rem;
   background-color: var(--background-secondary);
-}
-.email {
+  color: var(--background-tertiary);
   font-weight: 800;
   font-size: var(--font-small);
-  color: var(--background-tertiary);
 }
 .banners img,
 .banners svg {
