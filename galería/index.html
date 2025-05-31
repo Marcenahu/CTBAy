@@ -174,8 +174,8 @@
           }
         }
       </style>
-      <div class="hero" style="background-image: url(https://cdn.sanity.io/images/vo1etoba/production/f78708843a0464f8e012b4acea3167be6eb4e9ba-1920x400.png?fm=webp)">
-        <h2>Noticias</h2>
+      <div class="hero" style="background-image: url(https://cdn.sanity.io/images/vo1etoba/production/ca0b3147e24ecb4a5570f7bb6dce8555ca04d69d-1920x400.png?fm=webp)">
+        <h2>Galería<h2>
       </div>
       <style>
         .cards {
@@ -187,27 +187,30 @@
           gap: 4rem;
           width: calc(100% - 8rem);
           min-height: 15rem;
-        }
-        .card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-between;
-          background-color: var(--background-tertiary);
-          width: 100%;
-          max-width: 15rem;
-          border-radius: 1rem;
-          overflow: hidden;
-          border: 1rem solid var(--background-tertiary);
-          gap: 1rem;
-          cursor: pointer;
-          height: fit-content;
+          }
+          .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--background-tertiary);
+            width: 100%;
+            max-width: 15rem;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1rem solid var(--background-tertiary);
+            gap: 1rem;
+            cursor: pointer;
+            height: fit-content;
         }
         .card img {
           display: flex;
           align-items: center;
           justify-content: center;
           width: 100%;
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
         }
         .title {
           font-size: var(--large);
@@ -263,24 +266,24 @@
         }
       </style>
       <div class="cards">
-      <div class="card" onclick="document.getElementById('detail0').showModal()"><img  src="https://cdn.sanity.io/images/vo1etoba/production/c36739a8f34203833702b8c0651d78189baafd21-270x148.png?fm=webp&w=600"/> <h2 class="title">test 1</h2> <p class="description">desc</p></div>
+      <div class="card" onclick="document.getElementById('detail0').showModal()"><img  src="https://cdn.sanity.io/images/vo1etoba/production/63d0227033b6ad69f2b167f38670c982a72ab456-219x148.png?fm=webp&w=600"/>
+                </div>
           <dialog id="detail0">
             <button class="btnClose" onclick="document.getElementById('detail0').close()">x</button>
             <br>
-            <img src="https://cdn.sanity.io/images/vo1etoba/production/c36739a8f34203833702b8c0651d78189baafd21-270x148.png?fm=webp&w=600"/> 
-              <h2 class="title">test 1</h2>
+            <img src="https://cdn.sanity.io/images/vo1etoba/production/63d0227033b6ad69f2b167f38670c982a72ab456-219x148.png?fm=webp&w=600"/> 
             <p class="dialogDescription">
-            desc
+            Descripcion
             </p>
           </dialog>
-          <div class="card" onclick="document.getElementById('detail1').showModal()"><img  src="https://cdn.sanity.io/images/vo1etoba/production/25375b96023f09613fe7f217ebd5cd9760921975-148x148.png?fm=webp&w=600"/> <h2 class="title">test 2</h2> <p class="description">desc 2</p></div>
+          <div class="card" onclick="document.getElementById('detail1').showModal()"><img  src="https://cdn.sanity.io/images/vo1etoba/production/ca0b3147e24ecb4a5570f7bb6dce8555ca04d69d-1920x400.png?fm=webp&w=600"/>
+                </div>
           <dialog id="detail1">
             <button class="btnClose" onclick="document.getElementById('detail1').close()">x</button>
             <br>
-            <img src="https://cdn.sanity.io/images/vo1etoba/production/25375b96023f09613fe7f217ebd5cd9760921975-148x148.png?fm=webp&w=600"/> 
-              <h2 class="title">test 2</h2>
+            <img src="https://cdn.sanity.io/images/vo1etoba/production/ca0b3147e24ecb4a5570f7bb6dce8555ca04d69d-1920x400.png?fm=webp&w=600"/> 
             <p class="dialogDescription">
-            desc 2
+            test 2
             </p>
           </dialog>
           
