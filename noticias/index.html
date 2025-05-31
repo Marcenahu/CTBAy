@@ -262,7 +262,17 @@
         }
       </style>
       <div class="cards">
-      <p><i>No hay noticias actualmente</i></p>
+      <div class="card" onclick="document.getElementById('detail0').showModal()"><img  src="https://cdn.sanity.io/images/vo1etoba/production/c36739a8f34203833702b8c0651d78189baafd21-270x148.png?fm=webp&w=600"/> <h2 class="title">Test</h2> <p class="description">dfdsadfdsfffdf</p></div>
+          <dialog id="detail0">
+            <button class="btnClose" onclick="document.getElementById('detail0').close()">x</button>
+            <br>
+            <img src="https://cdn.sanity.io/images/vo1etoba/production/c36739a8f34203833702b8c0651d78189baafd21-270x148.png?fm=webp&w=600"/> 
+              <h2 class="title">Test</h2>
+            <p class="dialogDescription">
+            dfdsadfdsfffdf
+            </p>
+          </dialog>
+          
       </div>
       
     <link rel="stylesheet" href="/styles/footer.css" />
