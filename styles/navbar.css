@@ -204,11 +204,14 @@ details[open] > summary .arrow {
   .navMobile .ticket,
   .navMobile .social,
   .navMobile .email {
+    width: 95%;
+    justify-content: center;
     border-radius: 0.5rem;
   }
-  .navMobile img,
-  .navMobile svg {
-    height: 2rem;
+  .email svg,
+  .social img,
+  .ticket svg {
+    width: 2rem;
     color: var(--background);
   }
 }
