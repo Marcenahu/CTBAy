@@ -79,7 +79,7 @@ const generateGallery = (brand, gallery) => {
           justify-content: space-evenly;
           padding: 1rem;
           gap: 4rem;
-          width: calc(100% - 8rem);
+          width: calc(100% - 2rem);
           min-height: 15rem;
           }
           .card {
