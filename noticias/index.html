@@ -262,7 +262,17 @@
         }
       </style>
       <div class="cards">
-      <p><i>No hay noticias actualmente</i></p>
+      <div class="card" onclick="document.getElementById('detail0').showModal()"><img  src="https://cdn.sanity.io/images/vo1etoba/production/f5f113dc0d4c419a131994da4790614635eeea98-2004x1165.jpg?fm=webp&w=600"/> <h2 class="title">Ensayo de Sentimientos Compartidos</h2> <p class="description">Ensay de Sentimientos Compartidos</p></div>
+          <dialog id="detail0">
+            <button class="btnClose" onclick="document.getElementById('detail0').close()">x</button>
+            <br>
+            <img src="https://cdn.sanity.io/images/vo1etoba/production/f5f113dc0d4c419a131994da4790614635eeea98-2004x1165.jpg?fm=webp&w=600"/> 
+              <h2 class="title">Ensayo de Sentimientos Compartidos</h2>
+            <p class="dialogDescription">
+            Ensay de Sentimientos Compartidos
+            </p>
+          </dialog>
+          
       </div>
       
     <link rel="stylesheet" href="/styles/footer.css" />
